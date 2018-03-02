@@ -14,6 +14,9 @@ class MP3Importer
   end
 
   def import
-    
+    self.files.each do |files|
+      song = Song.new_by_filename(file)
+      Artist.all << song.artist unless Artist.all.inculde?(song.artist)
+    end 
   end
 end
